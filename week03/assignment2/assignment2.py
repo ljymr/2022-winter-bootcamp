@@ -2,6 +2,9 @@
 # Copy this file and rename as assignment2-yourname.py
 
 # Q1. Given a positive integer N. The task is to write a Python program to check if the number is prime or not.
+from typing import Tuple
+
+
 def is_prime(n: int) -> bool:
     return True
 
@@ -61,7 +64,7 @@ assert expected_dict == {'key1': 'val1', 'key2': 'val2'}
 # provided an example of slow version of bsearch_slow with O(n) time complecity. 
 # your solution should be faster than bsearch_slow
 
-def bsearch_slow(arr: [int], target: int) -> (int):
+def bsearch_slow(arr: [int], target: int) -> tuple[int, int]:
     left = -1
     right = -1
     for i in range(len(arr)):
@@ -71,14 +74,14 @@ def bsearch_slow(arr: [int], target: int) -> (int):
             right = i
         if i == len(arr) - 1:
             right = len(arr) - 1
-    return (left, right)
+    return left, right
 
 def create_arr(count: int, dup: int) -> [int]:
     return [dup for i in range(count)]
         
 # Complete this    
-def bsearch(arr: [int], target: int) -> (int):
-    return (-1, -1)
+def bsearch(arr: [int], target: int) -> tuple[int, int]:
+    return -1, -1
 
 assert bsearch_slow(create_arr(10000, 5), 5) == (0, 9999)
 assert bsearch(create_arr(1000, 5), 5) == (0, 999)
@@ -104,7 +107,8 @@ def extract_and_apply(l, p, f):
 
 # (2). [5 points] Write a function concatenate(seqs) that returns a list containing the concatenation of the elements of the input sequences. 
 # Your implementation should consist of a single list comprehension, and should not exceed one line. 
->>> concatenate([[1, 2], [3, 4]]) 
-[1, 2, 3, 4] 
->>> concatenate(["abc", (0, [0])]) 
-['a', 'b', 'c', 0, [0]] 
+concatenate([[1, 2], [3, 4]])
+# [1, 2, 3, 4]
+
+concatenate(["abc", (0, [0])])
+# ['a', 'b', 'c', 0, [0]]
