@@ -17,7 +17,7 @@ def factorial(x: int) -> int:
 
 # def factorial(x: int) -> int:
 #     from functools import reduce
-#     return reduce(lambda a, b: a * b, [1] + list(range(1, 9 + 1)))
+#     return reduce(lambda a, b: a * b, [1] + list(range(1, x + 1)))
 
 assert factorial(0) == 1
 assert factorial(1) == 1
