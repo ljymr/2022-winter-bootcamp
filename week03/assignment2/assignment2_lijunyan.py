@@ -27,10 +27,6 @@ assert not is_prime(0)
 # Output [3,4,5,6,7,1,2]
 
 def rotate(ar: [int], d: int) -> [int]:
-    if d<= len(ar):
-        ar1=ar[d:]
-        return ar1+ar[:d]
-    else:
         return ar[d%len(ar):] + ar[:d%len(ar)]
 
 
@@ -42,20 +38,28 @@ assert rotate([1,2,3], 4) == [2,3,1]
 # Q3. Selection sort - implement a workable selection sort algorithm
 # https://www.runoob.com/w3cnote/selection-sort.html 作为参考
 # Input students would be a list of [student #, score], sort by score ascending order.
-
+#
+# def selection_sort(arr: [[int]]) -> [[int]]:
+#     if len(arr) == 0:
+#         return arr
+#     for i in range(len(arr)):
+#         m = i
+#         for j in range(i + 1, len(arr)):
+#             if arr[m][1] > arr[j][1]:
+#                 arr2 = arr[j]
+#                 arr[j] = arr[m]
+#                 arr[m] = arr2
+#                 m = j
+#
+#     return arr
 def selection_sort(arr: [[int]]) -> [[int]]:
-    if len(arr) == 0:
-        return arr
-    for i in range(len(arr)):
-        m = i
-        for j in range(i + 1, len(arr)):
-            if arr[m][1] > arr[j][1]:
-                arr2 = arr[j]
-                arr[j] = arr[m]
-                arr[m] = arr2
-                m = j
-
-    return arr
+    for i in range(0,len(arr)):
+        min=i
+        for j in range( i+1, len(arr) ):
+            if arr[j][1] < arr[min][1]:
+                min=j
+        if min != i:
+            swap(arr[i],arr[min])
 
 
 # DO NOT ALTER BELOW.
@@ -116,23 +120,24 @@ def bsearch(arr:[int], target:int) -> (int):
     lef=0
     end=len(arr)
     while lef<end:
-        mid=int((lef+end)/2)
-        if arr[mid]>target:
+        mid=(lef+end)//2
+        if arr[mid] > target:
             end=mid
-        elif arr[mid]<target:
+        elif arr[mid] < target:
             lef=mid+1
-        elif arr[mid]==target:
-            end=mid
-            left=lef
-    lef=0
-    while lef<=len(arr)-1:
-        mid=int((lef+len(arr)-1)/2)
-        if arr[mid]<=target:
-            lef=mid+1
-        elif arr[mid]>target:
+        elif arr[mid] == target:
+            end = mid
+            left = lef
+    reset(lef.end)
+    while lef<end:
+        mid=(lef+end)//2
+        if arr[mid] < target:
+            lef = mid+1
+        elif arr[mid] > target:
             right=mid
-        if lef==len(arr)-1:
+        elif arr[mid] == target:
             right=lef
+            lef = mid+1
     return ( left , right )
 
 
