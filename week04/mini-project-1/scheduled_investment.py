@@ -2,12 +2,13 @@
 # 注意 - Copy this file and rename as scheduled_investment_{first_name}.py then complete code with a PR.
 # 注意 - Copy this file and rename as scheduled_investment_{first_name}.py then complete code with a PR.
 
-""" DO NOT EDIT (BEGIN) """
 import pandas as pd
 import datetime as dt
 
 RAW_DATA_NAME = "data/QQQ.csv"
 ANALYSIS_RESULT_DATA_NAME = "data/QQQ-result.csv"
+
+""" DO NOT EDIT (BEGIN) """
 
 
 def read_data() -> pd.DataFrame:
